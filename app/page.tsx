@@ -27,11 +27,23 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 
+
+type SponsorItem = {
+  name: string;
+  logo: string;
+  website: string;
+};
+
+type SponsorData = {
+  platinum?: SponsorItem[];
+  gold?: SponsorItem[];
+  silver?: SponsorItem[];
+};
+
 export default function Home() {
-  const [sponsors, setSponsors] = useState<unknown>(null);
+  const [sponsors, setSponsors] = useState<SponsorData | null>(null);
 
   useEffect(() => {
-    // Load sponsors data
     fetch('/sponsorship.json')
       .then(res => res.json())
       .then(data => setSponsors(data.sponsors))
@@ -422,28 +434,31 @@ export default function Home() {
                 >
                   <h3 className="text-2xl font-bold text-center mb-8 gradient-text">Platinum Sponsors</h3>
                   <div className="flex flex-wrap justify-center items-center gap-8">
-                    {sponsors.platinum.map((sponsor: any, index: number) => (
-                      <motion.a
-                        key={index}
-                        href={sponsor.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: index * 0.1 }}
-                        whileHover={{ scale: 1.1 }}
-                        className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20 hover:bg-white/20 transition-all"
-                      >
-                        <img
-                          src={sponsor.logo}
-                          alt={sponsor.name}
-                          className="h-24 w-auto object-contain filter brightness-0 invert"
-                          onError={(e) => {
-                            (e.target as HTMLImageElement).src = `https://via.placeholder.com/200x100/333/fff?text=${sponsor.name}`;
-                          }}
-                        />
-                      </motion.a>
-                    ))}
+                    {sponsors.platinum.map((sponsor: unknown, index: number) => {
+                      const platinumSponsor = sponsor as SponsorItem;
+                      return (
+                        <motion.a
+                          key={index}
+                          href={platinumSponsor.website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: index * 0.1 }}
+                          whileHover={{ scale: 1.1 }}
+                          className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20 hover:bg-white/20 transition-all"
+                        >
+                          <img
+                            src={platinumSponsor.logo}
+                            alt={platinumSponsor.name}
+                            className="h-24 w-auto object-contain filter brightness-0 invert"
+                            onError={(e) => {
+                              (e.target as HTMLImageElement).src = `https://via.placeholder.com/200x100/333/fff?text=${platinumSponsor.name}`;
+                            }}
+                          />
+                        </motion.a>
+                      );
+                    })}
                   </div>
                 </motion.div>
               )}
@@ -457,28 +472,31 @@ export default function Home() {
                 >
                   <h3 className="text-xl font-bold text-center mb-6 text-yellow-500">Gold Sponsors</h3>
                   <div className="flex flex-wrap justify-center items-center gap-6">
-                    {sponsors.gold.map((sponsor: any, index: number) => (
-                      <motion.a
-                        key={index}
-                        href={sponsor.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: index * 0.1 }}
-                        whileHover={{ scale: 1.05 }}
-                        className="bg-white/5 backdrop-blur-sm rounded-lg p-6 border border-white/10 hover:bg-white/10 transition-all"
-                      >
-                        <img
-                          src={sponsor.logo}
-                          alt={sponsor.name}
-                          className="h-16 w-auto object-contain filter brightness-0 invert opacity-80"
-                          onError={(e) => {
-                            (e.target as HTMLImageElement).src = `https://via.placeholder.com/180x80/333/fff?text=${sponsor.name}`;
-                          }}
-                        />
-                      </motion.a>
-                    ))}
+                    {sponsors.gold.map((sponsor: unknown, index: number) => {
+                      const goldSponsor = sponsor as SponsorItem;
+                      return (
+                        <motion.a
+                          key={index}
+                          href={goldSponsor.website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: index * 0.1 }}
+                          whileHover={{ scale: 1.05 }}
+                          className="bg-white/5 backdrop-blur-sm rounded-lg p-6 border border-white/10 hover:bg-white/10 transition-all"
+                        >
+                          <img
+                            src={goldSponsor.logo}
+                            alt={goldSponsor.name}
+                            className="h-16 w-auto object-contain filter brightness-0 invert opacity-80"
+                            onError={(e) => {
+                              (e.target as HTMLImageElement).src = `https://via.placeholder.com/180x80/333/fff?text=${goldSponsor.name}`;
+                            }}
+                          />
+                        </motion.a>
+                      );
+                    })}
                   </div>
                 </motion.div>
               )}
@@ -492,28 +510,31 @@ export default function Home() {
                 >
                   <h3 className="text-lg font-bold text-center mb-6 text-gray-400">Silver Sponsors</h3>
                   <div className="flex flex-wrap justify-center items-center gap-4">
-                    {sponsors.silver.map((sponsor: any, index: number) => (
-                      <motion.a
-                        key={index}
-                        href={sponsor.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: index * 0.1 }}
-                        whileHover={{ scale: 1.05 }}
-                        className="bg-white/5 backdrop-blur-sm rounded-lg p-4 border border-white/10 hover:bg-white/10 transition-all"
-                      >
-                        <img
-                          src={sponsor.logo}
-                          alt={sponsor.name}
-                          className="h-12 w-auto object-contain filter brightness-0 invert opacity-60"
-                          onError={(e) => {
-                            (e.target as HTMLImageElement).src = `https://via.placeholder.com/150x60/333/fff?text=${sponsor.name}`;
-                          }}
-                        />
-                      </motion.a>
-                    ))}
+                    {sponsors.silver.map((sponsor: unknown, index: number) => {
+                      const silverSponsor = sponsor as SponsorItem;
+                      return (
+                        <motion.a
+                          key={index}
+                          href={silverSponsor.website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: index * 0.1 }}
+                          whileHover={{ scale: 1.05 }}
+                          className="bg-white/5 backdrop-blur-sm rounded-lg p-4 border border-white/10 hover:bg-white/10 transition-all"
+                        >
+                          <img
+                            src={silverSponsor.logo}
+                            alt={silverSponsor.name}
+                            className="h-12 w-auto object-contain filter brightness-0 invert opacity-60"
+                            onError={(e) => {
+                              (e.target as HTMLImageElement).src = `https://via.placeholder.com/150x60/333/fff?text=${silverSponsor.name}`;
+                            }}
+                          />
+                        </motion.a>
+                      );
+                    })}
                   </div>
                 </motion.div>
               )}
