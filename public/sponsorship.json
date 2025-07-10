@@ -1,0 +1,55 @@
+{
+  "sponsors": {
+    "platinum": [
+      {
+        "name": "Company A",
+        "logo": "/sponsors/company-a.png",
+        "website": "https://company-a.com"
+      },
+      {
+        "name": "Company B",
+        "logo": "/sponsors/company-b.png",
+        "website": "https://company-b.com"
+      }
+    ],
+    "gold": [
+      {
+        "name": "Company C",
+        "logo": "/sponsors/company-c.png",
+        "website": "https://company-c.com"
+      },
+      {
+        "name": "Company D",
+        "logo": "/sponsors/company-d.png",
+        "website": "https://company-d.com"
+      },
+      {
+        "name": "Company E",
+        "logo": "/sponsors/company-e.png",
+        "website": "https://company-e.com"
+      }
+    ],
+    "silver": [
+      {
+        "name": "Company F",
+        "logo": "/sponsors/company-f.png",
+        "website": "https://company-f.com"
+      },
+      {
+        "name": "Company G",
+        "logo": "/sponsors/company-g.png",
+        "website": "https://company-g.com"
+      },
+      {
+        "name": "Company H",
+        "logo": "/sponsors/company-h.png",
+        "website": "https://company-h.com"
+      },
+      {
+        "name": "Company I",
+        "logo": "/sponsors/company-i.png",
+        "website": "https://company-i.com"
+      }
+    ]
+  }
+}
