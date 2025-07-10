@@ -3,12 +3,12 @@
     "platinum": [
       {
         "name": "Company A",
-        "logo": "/sponsors/company-a.png",
+        "logo": "/sponsors/logobrimo.png",
         "website": "https://company-a.com"
       },
       {
         "name": "Company B",
-        "logo": "/sponsors/company-b.png",
+        "logo": "/sponsors/ladjoe.jpg",
         "website": "https://company-b.com"
       }
     ],

@@ -25,6 +25,7 @@ import {
   Twitter,
   Users
 } from "lucide-react";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 
@@ -448,13 +449,16 @@ export default function Home() {
                           whileHover={{ scale: 1.1 }}
                           className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20 hover:bg-white/20 transition-all"
                         >
-                          <img
+                          <Image
                             src={platinumSponsor.logo}
                             alt={platinumSponsor.name}
+                            width={200}
+                            height={100}
                             className="h-24 w-auto object-contain filter brightness-0 invert"
                             onError={(e) => {
-                              (e.target as HTMLImageElement).src = `https://via.placeholder.com/200x100/333/fff?text=${platinumSponsor.name}`;
+                              (e.currentTarget as HTMLImageElement).src = `https://via.placeholder.com/200x100/333/fff?text=${platinumSponsor.name}`;
                             }}
+                            unoptimized
                           />
                         </motion.a>
                       );
