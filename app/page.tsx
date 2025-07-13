@@ -21,8 +21,8 @@ import {
   MapPin,
   MessageSquare,
   Phone,
+  // Tiktok, // Removed because lucide-react does not export Tiktok
   Trophy,
-  Twitter,
   Users
 } from "lucide-react";
 import Image from "next/image";
@@ -67,7 +67,7 @@ export default function Home() {
             transition={{ duration: 0.5 }}
             className="text-4xl md:text-7xl font-bold text-white mb-4"
           >
-            FUN RUN 2024
+            SUKAMAJU RUN 2025
           </motion.h1>
           <TextGenerateEffect
             words="Join the Ultimate Running Experience of the Year"
@@ -94,10 +94,10 @@ export default function Home() {
             className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto"
           >
             {[
-              { icon: Calendar, label: "15 December", value: "2024" },
-              { icon: MapPin, label: "City Park", value: "Jakarta" },
+              { icon: Calendar, label: "Minggu, 7 September", value: "2025" },
+              { icon: MapPin, label: "Lapangan Subiantoro", value: "Sukamaju" },
               { icon: Users, label: "5000+", value: "Runners" },
-              { icon: Trophy, label: "Total Prize", value: "100M" },
+              { icon: Trophy, label: "Total Prize", value: "20 jt" },
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -585,24 +585,24 @@ export default function Home() {
           <div className="max-w-3xl mx-auto space-y-4">
             {[
               {
-                question: "What is included in the registration fee?",
-                answer: "Your registration includes a race kit with official jersey, finisher medal, certificate, race bib, timing chip (10K & 21K), refreshments, and medical support throughout the race.",
+                question: "Siapa Saja Yang Bisa Mengikuti Sukamaju Run 2025?",
+                answer: "Lomba ini terbuka untuk semua usia, latar belakang, dan komunitas, Tak peduli siapa kamu, dari mana asalmu",
               },
               {
-                question: "Can I change my race category after registration?",
-                answer: "Yes, you can change your race category up to 2 weeks before the event. A small administration fee may apply for category upgrades.",
+                question: "Bisakah saya mengubah kategori lomba setelah registrasi?",
+                answer: "Ya, Anda dapat mengubah kategori lomba hingga 2 minggu sebelum acara. Biaya administrasi kecil mungkin berlaku untuk peningkatan kategori",
               },
               {
-                question: "Is there a cut-off time for each category?",
-                answer: "Yes, cut-off times are: 5K - 1 hour, 10K - 2 hours. These times ensure safety and proper event management.",
+                question: "Apakah ada batas waktu untuk setiap kategori?",
+                answer: "Ya, batas waktu adalah: 5K - 1 jam, 10K - 2 jam. Waktu ini memastikan keselamatan dan manajemen acara yang tepat.",
               },
               {
-                question: "What happens if it rains on race day?",
-                answer: "The race will proceed rain or shine. We only cancel or postpone in cases of extreme weather that poses safety risks. Updates will be posted on our social media channels.",
+                question: "Apa yang terjadi jika hujan pada hari perlombaan?",
+                answer: "Lomba akan tetap dilaksanakan meskipun hujan. Kami hanya membatalkan atau menunda dalam kasus cuaca ekstrem yang membahayakan keselamatan. Pembaruan akan diposting di saluran media sosial kami.",
               },
               {
-                question: "Can I get a refund if I can't participate?",
-                answer: "Registration fees are non-refundable. However, you can transfer your slot to another person up to 1 week before the event with a small transfer fee.",
+                question: "Bisakah saya mendapatkan pengembalian dana jika saya tidak dapat berpartisipasi?",
+                answer: "Biaya pendaftaran tidak dapat dikembalikan. Namun, Anda dapat mentransfer slot Anda ke orang lain hingga 1 minggu sebelum acara dengan biaya transfer kecil.",
               },
             ].map((item, index) => (
               <motion.div
@@ -643,8 +643,7 @@ export default function Home() {
               <div>
                 <h3 className="text-2xl font-bold text-white mb-4">Get In Touch</h3>
                 <p className="text-gray-400 mb-6">
-                  Have questions about the Fun Run 2024? Our team is here to help you with registration,
-                  event details, and any other inquiries you may have.
+                  Ada pertanyaan seputar Sukamaju Run 2025? Tim kami siap membantu Anda dengan pendaftaran, detail acara, dan pertanyaan lainnya.
                 </p>
               </div>
 
@@ -655,7 +654,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="text-gray-400 text-sm">Email</p>
-                    <p className="text-white">info@funrun2024.com</p>
+                    <p className="text-white">sukamajurun2025@gmail.com</p>
                   </div>
                 </div>
 
@@ -665,7 +664,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="text-gray-400 text-sm">Phone</p>
-                    <p className="text-white">+62 812-3456-7890</p>
+                    <p className="text-white">0852-8083-9706</p>
                   </div>
                 </div>
 
@@ -675,7 +674,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="text-gray-400 text-sm">WhatsApp</p>
-                    <p className="text-white">+62 812-3456-7890</p>
+                    <p className="text-white">0852-8083-9706</p>
                   </div>
                 </div>
               </div>
@@ -683,14 +682,17 @@ export default function Home() {
               <div>
                 <p className="text-gray-400 mb-4">Follow us on social media</p>
                 <div className="flex gap-4">
-                  <a href="#" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors">
+                  <a href="https://www.instagram.com/sukamajurun2025/" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors">
                     <Instagram className="w-5 h-5 text-white" />
                   </a>
-                  <a href="#" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors">
+                  <a href="https://www.facebook.com/sukamajurun2025/" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors">
                     <Facebook className="w-5 h-5 text-white" />
                   </a>
-                  <a href="#" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors">
-                    <Twitter className="w-5 h-5 text-white" />
+                  <a href="" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors" aria-label="TikTok">
+                    {/* TikTok SVG icon */}
+                    <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M21.6 8.1a5.6 5.6 0 0 1-3.6-1.2V15a6.6 6.6 0 1 1-6.6-6.6c.2 0 .4 0 .6.1v2.2a4.4 4.4 0 1 0 4.4 4.4V2.4h2.2a3.4 3.4 0 0 0 3.4 3.4v2.3z"/>
+                    </svg>
                   </a>
                 </div>
               </div>
