@@ -1,55 +1,29 @@
 {
-  "sponsors": {
-    "platinum": [
-      {
-        "name": "Company A",
-        "logo": "/sponsors/logobrimo.png",
-        "website": "https://company-a.com"
-      },
-      {
-        "name": "Company B",
-        "logo": "/sponsors/ladjoe.jpg",
-        "website": "https://company-b.com"
-      }
-    ],
-    "gold": [
-      {
-        "name": "Company C",
-        "logo": "/sponsors/company-c.png",
-        "website": "https://company-c.com"
-      },
-      {
-        "name": "Company D",
-        "logo": "/sponsors/company-d.png",
-        "website": "https://company-d.com"
-      },
-      {
-        "name": "Company E",
-        "logo": "/sponsors/company-e.png",
-        "website": "https://company-e.com"
-      }
-    ],
-    "silver": [
-      {
-        "name": "Company F",
-        "logo": "/sponsors/company-f.png",
-        "website": "https://company-f.com"
-      },
-      {
-        "name": "Company G",
-        "logo": "/sponsors/company-g.png",
-        "website": "https://company-g.com"
-      },
-      {
-        "name": "Company H",
-        "logo": "/sponsors/company-h.png",
-        "website": "https://company-h.com"
-      },
-      {
-        "name": "Company I",
-        "logo": "/sponsors/company-i.png",
-        "website": "https://company-i.com"
-      }
-    ]
-  }
+  "sponsors": [
+    {
+      "name": "Ladjoe",
+      "logo": "/sponsors/ladjoe.jpg",
+      "website": "https://ladjoe.com"
+    },
+    {
+      "name": "BRImo",
+      "logo": "/sponsors/logobrimo.png",
+      "website": "https://brimo.bri.co.id"
+    },
+    {
+      "name": "Sponsor 3",
+      "logo": "/sponsors/sponsor3.png",
+      "website": "https://sponsor3.com"
+    },
+    {
+      "name": "Sponsor 4",
+      "logo": "/sponsors/sponsor4.png",
+      "website": "https://sponsor4.com"
+    },
+    {
+      "name": "Sponsor 5",
+      "logo": "/sponsors/sponsor5.png",
+      "website": "https://sponsor5.com"
+    }
+  ]
 }

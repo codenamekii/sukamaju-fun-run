@@ -7,6 +7,7 @@ import {
   CardItem,
 } from "@/components/ui/3d-card";
 import { Button } from "@/components/ui/button";
+import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import { Meteors } from "@/components/ui/meteor";
 import { Spotlight } from "@/components/ui/spotlight";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
@@ -25,25 +26,20 @@ import {
   Trophy,
   Users
 } from "lucide-react";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 
 
-type SponsorItem = {
+type SponsorData = {
   name: string;
   logo: string;
   website: string;
-};
-
-type SponsorData = {
-  platinum?: SponsorItem[];
-  gold?: SponsorItem[];
-  silver?: SponsorItem[];
-};
+}[];
 
 export default function Home() {
+  // Update state sponsors
   const [sponsors, setSponsors] = useState<SponsorData | null>(null);
 
+  // Update useEffect
   useEffect(() => {
     fetch('/sponsorship.json')
       .then(res => res.json())
@@ -424,125 +420,31 @@ export default function Home() {
             <p className="text-gray-400 text-lg">Thank you to our amazing partners who make this event possible</p>
           </motion.div>
 
-          {sponsors && (
-            <div className="space-y-16">
-              {/* Platinum Sponsors */}
-              {sponsors.platinum && sponsors.platinum.length > 0 && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <h3 className="text-2xl font-bold text-center mb-8 gradient-text">Platinum Sponsors</h3>
-                  <div className="flex flex-wrap justify-center items-center gap-8">
-                    {sponsors.platinum.map((sponsor: unknown, index: number) => {
-                      const platinumSponsor = sponsor as SponsorItem;
-                      return (
-                        <motion.a
-                          key={index}
-                          href={platinumSponsor.website}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          transition={{ delay: index * 0.1 }}
-                          whileHover={{ scale: 1.1 }}
-                          className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20 hover:bg-white/20 transition-all"
-                        >
-                          <Image
-                            src={platinumSponsor.logo}
-                            alt={platinumSponsor.name}
-                            width={200}
-                            height={100}
-                            className="h-24 w-auto object-contain filter brightness-0 invert"
-                            onError={(e) => {
-                              (e.currentTarget as HTMLImageElement).src = `https://via.placeholder.com/200x100/333/fff?text=${platinumSponsor.name}`;
-                            }}
-                            unoptimized
-                          />
-                        </motion.a>
-                      );
-                    })}
-                  </div>
-                </motion.div>
-              )}
+          {sponsors && sponsors.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="relative"
+            >
+              <InfiniteMovingCards
+                items={sponsors}
+                direction="left"
+                speed="slow"
+                pauseOnHover={true}
+                className="mb-8"
+              />
 
-              {/* Gold Sponsors */}
-              {sponsors.gold && sponsors.gold.length > 0 && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <h3 className="text-xl font-bold text-center mb-6 text-yellow-500">Gold Sponsors</h3>
-                  <div className="flex flex-wrap justify-center items-center gap-6">
-                    {sponsors.gold.map((sponsor: unknown, index: number) => {
-                      const goldSponsor = sponsor as SponsorItem;
-                      return (
-                        <motion.a
-                          key={index}
-                          href={goldSponsor.website}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          transition={{ delay: index * 0.1 }}
-                          whileHover={{ scale: 1.05 }}
-                          className="bg-white/5 backdrop-blur-sm rounded-lg p-6 border border-white/10 hover:bg-white/10 transition-all"
-                        >
-                          <img
-                            src={goldSponsor.logo}
-                            alt={goldSponsor.name}
-                            className="h-16 w-auto object-contain filter brightness-0 invert opacity-80"
-                            onError={(e) => {
-                              (e.target as HTMLImageElement).src = `https://via.placeholder.com/180x80/333/fff?text=${goldSponsor.name}`;
-                            }}
-                          />
-                        </motion.a>
-                      );
-                    })}
-                  </div>
-                </motion.div>
+              {/* Duplicate untuk efek yang lebih smooth jika sponsor sedikit */}
+              {sponsors.length < 5 && (
+                <InfiniteMovingCards
+                  items={sponsors}
+                  direction="right"
+                  speed="slow"
+                  pauseOnHover={true}
+                />
               )}
-
-              {/* Silver Sponsors */}
-              {sponsors.silver && sponsors.silver.length > 0 && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <h3 className="text-lg font-bold text-center mb-6 text-gray-400">Silver Sponsors</h3>
-                  <div className="flex flex-wrap justify-center items-center gap-4">
-                    {sponsors.silver.map((sponsor: unknown, index: number) => {
-                      const silverSponsor = sponsor as SponsorItem;
-                      return (
-                        <motion.a
-                          key={index}
-                          href={silverSponsor.website}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          transition={{ delay: index * 0.1 }}
-                          whileHover={{ scale: 1.05 }}
-                          className="bg-white/5 backdrop-blur-sm rounded-lg p-4 border border-white/10 hover:bg-white/10 transition-all"
-                        >
-                          <img
-                            src={silverSponsor.logo}
-                            alt={silverSponsor.name}
-                            className="h-12 w-auto object-contain filter brightness-0 invert opacity-60"
-                            onError={(e) => {
-                              (e.target as HTMLImageElement).src = `https://via.placeholder.com/150x60/333/fff?text=${silverSponsor.name}`;
-                            }}
-                          />
-                        </motion.a>
-                      );
-                    })}
-                  </div>
-                </motion.div>
-              )}
-            </div>
+            </motion.div>
           )}
 
           {/* Become a Sponsor CTA */}
