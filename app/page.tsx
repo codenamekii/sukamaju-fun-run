@@ -26,7 +26,9 @@ import {
   Trophy,
   Users
 } from "lucide-react";
+import Image from "next/image";
 import { useEffect, useState } from "react";
+
 
 
 type SponsorData = {
@@ -287,11 +289,15 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur-2xl opacity-20"></div>
               <div className="relative bg-gray-900 rounded-2xl p-8 border border-gray-800">
                 <h3 className="text-2xl font-bold text-white mb-4">Official Race Jersey</h3>
-                <div className="aspect-square bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl mb-6 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-32 h-40 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg mx-auto mb-4"></div>
-                    <p className="text-gray-400">Premium Dri-Fit Material</p>
-                  </div>
+                <div className="aspect-square bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl mb-6 overflow-hidden">
+                  <Image
+                    src="/merch/jersey.jpg"
+                    alt="Official Race Jersey"
+                    width={400}
+                    height={400}
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                    unoptimized
+                  />
                 </div>
                 <ul className="space-y-2 text-gray-300">
                   <li>✓ Moisture-wicking technology</li>
@@ -311,13 +317,15 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-red-600 rounded-2xl blur-2xl opacity-20"></div>
               <div className="relative bg-gray-900 rounded-2xl p-8 border border-gray-800">
                 <h3 className="text-2xl font-bold text-white mb-4">Finisher Medal</h3>
-                <div className="aspect-square bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl mb-6 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-32 h-32 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full mx-auto mb-4 flex items-center justify-center">
-                      <Trophy className="w-16 h-16 text-white" />
-                    </div>
-                    <p className="text-gray-400">Premium Metal Finish</p>
-                  </div>
+                <div className="aspect-square bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl mb-6 overflow-hidden">
+                  <Image
+                    src="/merch/medali.jpg"
+                    alt="Finisher Medal"
+                    width={400}
+                    height={400}
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                    unoptimized
+                  />
                 </div>
                 <ul className="space-y-2 text-gray-300">
                   <li>✓ Custom engraved design</li>
@@ -383,7 +391,13 @@ export default function Home() {
                         <p key={idx} className="text-gray-300 text-sm">✓ {include}</p>
                       ))}
                     </div>
-                    <Button variant="glow" className="w-full mt-6">
+                    <Button
+                      variant="glow"
+                      className="w-full mt-6"
+                      onClick={() =>
+                        window.open("https://forms.gle/wessYTiJ7bXhd2wQA", "_blank")
+                      }
+                    >
                       Register Now
                     </Button>
                   </div>
@@ -399,8 +413,15 @@ export default function Home() {
             >
               <h3 className="text-2xl font-bold text-white mb-4">Group Registration</h3>
               <p className="text-white/90 mb-6">Register 5 or more participants and get 15% discount!</p>
-              <Button variant="outline" size="lg" className="bg-white text-gray-900 hover:bg-gray-100">
-                Contact Us for Group Registration
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="bg-white text-gray-900 hover:bg-gray-100"
+                onClick={() =>
+                  window.open("https://api.whatsapp.com/send/?phone=6285890031215&text&type=phone_number&app_absent=0", "_blank")
+                }
+                >
+                  Contact Us for Group Registration
               </Button>
             </motion.div>
           </div>
