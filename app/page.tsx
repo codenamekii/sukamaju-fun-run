@@ -30,14 +30,20 @@ import { useEffect, useState } from "react";
 
 
 
+interface Sponsor {
+  name: string;
+  logo: string;
+  website?: string;
+}
+
 export default function SponsorshipSection() {
-  const [sponsors, setSponsors] = useState<any[]>([]);
+  const [sponsors, setSponsors] = useState<Sponsor[]>([]);
 
   useEffect(() => {
     fetch("/sponsorship.json")
       .then((res) => res.json())
       .then((data) => {
-        // Akses array di dalam key "sponsors"
+        // JSON ada key sponsors
         setSponsors(data.sponsors || []);
       })
       .catch((err) => console.error(err));
@@ -57,8 +63,8 @@ export default function SponsorshipSection() {
       <Image
         src={s.logo}
         alt={s.name}
-        width={300}   // lebih besar
-        height={160}  // lebih besar
+        width={300}
+        height={160}
         className="h-48 w-auto object-contain opacity-90 hover:opacity-100 transition"
         unoptimized
       />
