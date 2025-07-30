@@ -37,7 +37,7 @@ export function Navigation() {
       <nav className="fixed top-0 z-50 w-full bg-transparent">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
-            <h1 className="text-2xl font-bold">FUN RUN 2024</h1>
+            <h1 className="text-2xl font-bold">SUKAMAJU RUN 2025</h1>
           </div>
         </div>
       </nav>
@@ -63,7 +63,7 @@ export function Navigation() {
             transition={{ delay: 0.1 }}
             className="flex items-center"
           >
-            <h1 className="text-2xl font-bold gradient-text">FUN RUN 2024</h1>
+            <h1 className="text-2xl font-bold gradient-text">SUKAMAJU RUN 2025</h1>
           </motion.div>
 
           {/* Desktop Navigation */}

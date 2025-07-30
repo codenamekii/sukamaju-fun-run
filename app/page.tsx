@@ -22,7 +22,6 @@ import {
   MapPin,
   MessageSquare,
   Phone,
-  // Tiktok, // Removed because lucide-react does not export Tiktok
   Trophy,
   Users
 } from "lucide-react";
@@ -68,7 +67,7 @@ export default function Home() {
             SUKAMAJU RUN 2025
           </motion.h1>
           <TextGenerateEffect
-            words="Join the Ultimate Running Experience of the Year"
+            words="Melangkah Bersama, Satukan Perbedaan"
             className="text-xl md:text-2xl text-gray-300 mb-8"
           />
           <motion.div
@@ -123,32 +122,39 @@ export default function Home() {
             transition={{ duration: 0.5 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Event Schedule</h2>
-            <p className="text-gray-400 text-lg">Mark your calendar for these important dates</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Event Schedule
+            </h2>
+            <p className="text-gray-400 text-lg">
+              Mark your calendar for these important dates
+            </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-14 max-w-6xl mx-auto">
             {[
               {
-                date: "1 Nov 2024",
+                date: "Coming Soon",
                 title: "Registration Opens",
                 time: "00:00 WIB",
-                description: "Early bird registration with special discount",
+                description: "Daftarkan dirimu segera!!!",
                 color: "from-blue-600 to-cyan-600",
+                image: "registrasi.png",
               },
               {
-                date: "1 Dec 2024",
+                date: "Coming Soon",
                 title: "Registration Closes",
-                time: "23:59 WIB",
-                description: "Last chance to secure your spot",
+                time: "23:59 WITA",
+                description: "Kesempatan terakhir, ayo buruan!",
                 color: "from-purple-600 to-pink-600",
+                image: "close.png",
               },
               {
-                date: "15 Dec 2024",
+                date: "28 Sept 2025",
                 title: "Race Day",
-                time: "06:00 WIB",
-                description: "The big day! Get ready to run",
+                time: "06:00 WITA",
+                description: "Hari Besar, Ayo Berlari Bersama!",
                 color: "from-orange-600 to-red-600",
+                image: "race.png",
               },
             ].map((item, index) => (
               <motion.div
@@ -157,34 +163,45 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
               >
-                <CardContainer className="inter-var">
-                  <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border">
-                    <CardItem
-                      translateZ="50"
-                      className="text-xl font-bold text-neutral-600 dark:text-white"
-                    >
-                      <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r ${item.color} text-white text-sm`}>
-                        <Clock className="w-4 h-4" />
-                        {item.date}
-                      </div>
+                <CardContainer className="inter-var cursor-pointer">
+                  <CardBody className="relative group/card bg-gray-50 dark:bg-black dark:border-white/[0.2] border border-black/[0.1] rounded-xl p-6 w-auto sm:w-[22rem] h-auto dark:hover:shadow-emerald-500/[0.2] dark:hover:shadow-2xl">
+
+                    {/* Gambar utama */}
+                    <CardItem translateZ="100">
+                      <Image
+                        src={`/${item.image}`}
+                        alt={item.title}
+                        width={600}
+                        height={400}
+                        className="w-full h-40 object-cover rounded-md mb-4"
+                      />
                     </CardItem>
+
+                    <CardItem
+                      translateZ="60"
+                      className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r ${item.color} text-white text-sm`}
+                    >
+                      <Clock className="w-4 h-4" />
+                      {item.date}
+                    </CardItem>
+
                     <CardItem
                       as="h3"
-                      translateZ="60"
+                      translateZ="80"
                       className="text-2xl font-bold text-neutral-800 dark:text-white mt-4"
                     >
                       {item.title}
                     </CardItem>
+
                     <CardItem
-                      as="p"
                       translateZ="60"
                       className="text-neutral-500 text-sm mt-2 dark:text-neutral-300"
                     >
                       {item.time}
                     </CardItem>
+
                     <CardItem
-                      as="p"
-                      translateZ="60"
+                      translateZ="50"
                       className="text-neutral-600 mt-4 dark:text-neutral-400"
                     >
                       {item.description}

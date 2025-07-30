@@ -24,6 +24,16 @@
       "name": "Sponsor 5",
       "logo": "/sponsors/sponsor5.png",
       "website": "https://sponsor5.com"
+    },
+    {
+      "name":"Sponsor 6",
+      "logo":"/sponsors/sponsor6.png",
+      "website":"#"
+    },
+    {
+      "name":"Sponsor 7",
+      "logo":"/sponsors/sponsor7.png",
+      "website":"#"
     }
   ]
 }
