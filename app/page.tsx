@@ -30,23 +30,40 @@ import { useEffect, useState } from "react";
 
 
 
-type SponsorData = {
-  name: string;
-  logo: string;
-  website: string;
-}[];
+export default function SponsorshipSection() {
+  const [sponsors, setSponsors] = useState<any[]>([]);
 
-export default function Home() {
-  // Update state sponsors
-  const [sponsors, setSponsors] = useState<SponsorData | null>(null);
-
-  // Update useEffect
   useEffect(() => {
-    fetch('/sponsorship.json')
-      .then(res => res.json())
-      .then(data => setSponsors(data.sponsors))
-      .catch(err => console.error('Error loading sponsors:', err));
+    fetch("/sponsorship.json")
+      .then((res) => res.json())
+      .then((data) => {
+        // Akses array di dalam key "sponsors"
+        setSponsors(data.sponsors || []);
+      })
+      .catch((err) => console.error(err));
   }, []);
+
+  if (sponsors.length === 0) return null;
+
+  const sponsorNodes = sponsors.map((s) => (
+    <a
+      key={s.name}
+      href={s.website ?? "#"}
+      target={s.website ? "_blank" : undefined}
+      rel={s.website ? "noopener noreferrer" : undefined}
+      className="mx-6 block"
+      aria-label={s.name}
+    >
+      <Image
+        src={s.logo}
+        alt={s.name}
+        width={300}   // lebih besar
+        height={160}  // lebih besar
+        className="h-48 w-auto object-contain opacity-90 hover:opacity-100 transition"
+        unoptimized
+      />
+    </a>
+  ));
   return (
     <main className="min-h-screen bg-black/[0.96] antialiased bg-grid-white/[0.02]">
       <Navigation />
@@ -76,7 +93,13 @@ export default function Home() {
             transition={{ delay: 1, duration: 0.5 }}
             className="flex gap-4 justify-center"
           >
-            <Button variant="glow" size="lg">
+            <Button 
+              variant="glow" 
+              size="lg"
+              onClick={() =>
+                window.open("https://forms.gle/wessYTiJ7bXhd2wQA", "_blank")
+              }
+            >
               Register Now <ChevronRight className="ml-2 h-4 w-4" />
             </Button>
             <Button variant="outline" size="lg" className="text-white border-white hover:bg-white/10">
@@ -91,9 +114,9 @@ export default function Home() {
             className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto"
           >
             {[
-              { icon: Calendar, label: "Minggu, 7 September", value: "2025" },
+              { icon: Calendar, label: "Minggu, 28 September", value: "2025" },
               { icon: MapPin, label: "Lapangan Subiantoro", value: "Sukamaju" },
-              { icon: Users, label: "5000+", value: "Runners" },
+              { icon: Users, label: "1000+", value: "Runners" },
               { icon: Trophy, label: "Total Prize", value: "20 jt" },
             ].map((item, index) => (
               <motion.div
@@ -123,10 +146,10 @@ export default function Home() {
             className="text-center mb-12"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Event Schedule
+              Jadwal Kegiatan
             </h2>
             <p className="text-gray-400 text-lg">
-              Mark your calendar for these important dates
+              Catat di Kalender kalian ya!
             </p>
           </motion.div>
 
@@ -134,7 +157,7 @@ export default function Home() {
             {[
               {
                 date: "Coming Soon",
-                title: "Registration Opens",
+                title: "Pendaftaran dibuka",
                 time: "00:00 WIB",
                 description: "Daftarkan dirimu segera!!!",
                 color: "from-blue-600 to-cyan-600",
@@ -142,7 +165,7 @@ export default function Home() {
               },
               {
                 date: "Coming Soon",
-                title: "Registration Closes",
+                title: "Pendaftaran ditutup",
                 time: "23:59 WITA",
                 description: "Kesempatan terakhir, ayo buruan!",
                 color: "from-purple-600 to-pink-600",
@@ -223,8 +246,8 @@ export default function Home() {
             transition={{ duration: 0.5 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Race Routes</h2>
-            <p className="text-gray-400 text-lg">Choose your challenge</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Rute Sukamaju Run</h2>
+            <p className="text-gray-400 text-lg">Pilih Tantanganmu!</p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -292,8 +315,8 @@ export default function Home() {
             transition={{ duration: 0.5 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Jersey & Medal Design</h2>
-            <p className="text-gray-400 text-lg">Exclusive merchandise for all participants</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Jersey & Medali</h2>
+            <p className="text-gray-400 text-lg">Merchendise Eksklusif untuk semua peserta</p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
@@ -312,7 +335,7 @@ export default function Home() {
                     alt="Official Race Jersey"
                     width={400}
                     height={400}
-                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                    className="object-cover hover:scale-110 transition-transform duration-300"
                     unoptimized
                   />
                 </div>
@@ -340,7 +363,7 @@ export default function Home() {
                     alt="Finisher Medal"
                     width={400}
                     height={400}
-                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                    className="object-cover hover:scale-110 transition-transform duration-300"
                     unoptimized
                   />
                 </div>
@@ -365,8 +388,8 @@ export default function Home() {
             transition={{ duration: 0.5 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Registration</h2>
-            <p className="text-gray-400 text-lg">Secure your spot today!</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Registrasi</h2>
+            <p className="text-gray-400 text-lg">Amankan Spotmu Sekarang Juga</p>
           </motion.div>
 
           <div className="max-w-4xl mx-auto">
@@ -376,13 +399,13 @@ export default function Home() {
                   category: "5K Fun Run",
                   earlyBird: "Rp 150.000",
                   regular: "Rp 200.000",
-                  includes: ["Race kit", "Jersey", "Medal", "Certificate"],
+                  benefit: ["Race kit", "Jersey", "Medal", "Certificate"],
                 },
                 {
                   category: "10K Challenge",
                   earlyBird: "Rp 200.000",
                   regular: "Rp 250.000",
-                  includes: ["Race kit", "Jersey", "Medal", "Certificate", "Timing chip"],
+                  benefit: ["Race kit", "Jersey", "Medal", "Certificate"],
                 },
               ].map((item, index) => (
                 <motion.div
@@ -404,8 +427,8 @@ export default function Home() {
                     </div>
                     <div className="space-y-2">
                       <p className="text-gray-400 text-sm font-semibold">Includes:</p>
-                      {item.includes.map((include, idx) => (
-                        <p key={idx} className="text-gray-300 text-sm">✓ {include}</p>
+                      {item.benefit.map((benefit, idx) => (
+                        <p key={idx} className="text-gray-300 text-sm">✓ {benefit}</p>
                       ))}
                     </div>
                     <Button
@@ -454,57 +477,36 @@ export default function Home() {
             transition={{ duration: 0.5 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Our Sponsors</h2>
-            <p className="text-gray-400 text-lg">Thank you to our amazing partners who make this event possible</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Our Sponsors
+            </h2>
+            <p className="text-gray-400 text-lg">
+              Thank you to our amazing partners who make this event possible
+            </p>
           </motion.div>
 
-          {sponsors && sponsors.length > 0 && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              className="relative"
-            >
-              <InfiniteMovingCards
-                items={sponsors}
-                direction="left"
-                speed="slow"
-                pauseOnHover={true}
-                className="mb-8"
-              />
-
-              {/* Duplicate untuk efek yang lebih smooth jika sponsor sedikit */}
-              {sponsors.length < 5 && (
-                <InfiniteMovingCards
-                  items={sponsors}
-                  direction="right"
-                  speed="slow"
-                  pauseOnHover={true}
-                />
-              )}
-            </motion.div>
-          )}
-
-          {/* Become a Sponsor CTA */}
+          {/* Infinite moving cards */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="mt-16 text-center"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            className="relative space-y-10"
           >
-            <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 max-w-2xl mx-auto">
-              <h3 className="text-2xl font-bold text-white mb-4">Become a Sponsor</h3>
-              <p className="text-white/90 mb-6">
-                Join us in making this event a success! Get your brand in front of thousands of runners and fitness enthusiasts.
-              </p>
-              <Button
-                variant="outline"
-                size="lg"
-                className="bg-white text-gray-900 hover:bg-gray-100 border-0"
-              >
-                Download Sponsorship Package
-              </Button>
-            </div>
+            <InfiniteMovingCards
+              items={sponsorNodes}
+              direction="left"
+              speed="slow"
+              pauseOnHover
+            />
+            {/* Baris ke-2 kalau sponsor < 6 */}
+            {sponsors.length < 6 && (
+              <InfiniteMovingCards
+                items={sponsorNodes}
+                direction="right"
+                speed="slow"
+                pauseOnHover
+              />
+            )}
           </motion.div>
         </div>
       </section>
@@ -688,7 +690,13 @@ export default function Home() {
       <footer className="py-8 border-t border-gray-800">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">© 2024 Fun Run. All rights reserved.</p>
+            <p 
+              className="text-gray-400 text-sm">© 2025 Sukamaju Run 2025. 
+              <button 
+                className="hover:text-white text-sm transition-colors" 
+                onClick={() =>
+                  window.open("https://kiiiii.netlify.app/", "_blank")
+                } >  by Taufiqurrahman</button> with 😎</p>
             <div className="flex gap-6 mt-4 md:mt-0">
               <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
               <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
