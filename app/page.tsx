@@ -65,7 +65,7 @@ export default function SponsorshipSection() {
         alt={s.name}
         width={300}
         height={160}
-        className="h-48 w-auto object-contain opacity-90 hover:opacity-100 transition"
+        className="h-48 w-auto object-contain opacity-90 rounded-md hover:opacity-100 transition"
         unoptimized
       />
     </a>
@@ -159,7 +159,7 @@ export default function SponsorshipSection() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-14 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 text-white gap-14 max-w-6xl mx-auto">
             {[
               {
                 date: "Coming Soon",
@@ -202,7 +202,7 @@ export default function SponsorshipSection() {
                         alt={item.title}
                         width={600}
                         height={400}
-                        className="w-full h-40 object-cover rounded-md mb-4"
+                        className="w-full h-40 object-cover rounded-2xl mb-4"
                       />
                     </CardItem>
 
@@ -224,7 +224,7 @@ export default function SponsorshipSection() {
 
                     <CardItem
                       translateZ="60"
-                      className="text-neutral-500 text-sm mt-2 dark:text-neutral-300"
+                      className="text-neutral-500 text-sm mt-2 dark:text-white"
                     >
                       {item.time}
                     </CardItem>
@@ -337,7 +337,7 @@ export default function SponsorshipSection() {
                 <h3 className="text-2xl font-bold text-white mb-4">Official Race Jersey</h3>
                 <div className="aspect-square bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl mb-6 overflow-hidden">
                   <Image
-                    src="/merch/jersey.jpg"
+                    src="/merch/Jersey.png"
                     alt="Official Race Jersey"
                     width={400}
                     height={400}
@@ -365,7 +365,7 @@ export default function SponsorshipSection() {
                 <h3 className="text-2xl font-bold text-white mb-4">Finisher Medal</h3>
                 <div className="aspect-square bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl mb-6 overflow-hidden">
                   <Image
-                    src="/merch/medali.jpg"
+                    src="/merch/Medal.png"
                     alt="Finisher Medal"
                     width={400}
                     height={400}
@@ -395,7 +395,7 @@ export default function SponsorshipSection() {
             className="text-center mb-12"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Registrasi</h2>
-            <p className="text-gray-400 text-lg">Amankan Spotmu Sekarang Juga</p>
+            <p className="text-gray-400 text-lg">Amankan Slotmu Sekarang Juga</p>
           </motion.div>
 
           <div className="max-w-4xl mx-auto">
@@ -405,13 +405,13 @@ export default function SponsorshipSection() {
                   category: "5K Fun Run",
                   earlyBird: "Rp 150.000",
                   regular: "Rp 200.000",
-                  benefit: ["Race kit", "Jersey", "Medal", "Certificate"],
+                  benefit: ["Goodie Bag", "Jersey", "Medal", "E-Certificate"],
                 },
                 {
                   category: "10K Challenge",
                   earlyBird: "Rp 200.000",
                   regular: "Rp 250.000",
-                  benefit: ["Race kit", "Jersey", "Medal", "Certificate"],
+                  benefit: ["Goodie Bag", "Jersey", "Medal", "Certificate"],
                 },
               ].map((item, index) => (
                 <motion.div
@@ -457,8 +457,8 @@ export default function SponsorshipSection() {
               transition={{ delay: 0.3 }}
               className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-center"
             >
-              <h3 className="text-2xl font-bold text-white mb-4">Group Registration</h3>
-              <p className="text-white/90 mb-6">Register 5 or more participants and get 15% discount!</p>
+              <h3 className="text-2xl font-bold text-white mb-4">Registrasi Komunitas</h3>
+              <p className="text-white/90 mb-6">Untuk Registrasi Komunitas Silahkan Hubungi Panitia Penyelenggara</p>
               <Button 
                 variant="outline" 
                 size="lg" 
@@ -467,7 +467,7 @@ export default function SponsorshipSection() {
                   window.open("https://api.whatsapp.com/send/?phone=6285890031215&text&type=phone_number&app_absent=0", "_blank")
                 }
                 >
-                  Contact Us for Group Registration
+                  Registrasi Komunitas
               </Button>
             </motion.div>
           </div>
@@ -484,10 +484,10 @@ export default function SponsorshipSection() {
             className="text-center mb-12"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Our Sponsors
+              Sponsors
             </h2>
             <p className="text-gray-400 text-lg">
-              Thank you to our amazing partners who make this event possible
+              Apresiasi dan Terimakasih Kepada Sponsor Kami
             </p>
           </motion.div>
 
@@ -577,8 +577,8 @@ export default function SponsorshipSection() {
             transition={{ duration: 0.5 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Contact Us</h2>
-            <p className="text-gray-400 text-lg">Get in touch with our team</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Hubungi Kami</h2>
+            <p className="text-gray-400 text-lg">Lebih dekat dengan tim panitia penyelenggara</p>
           </motion.div>
 
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
@@ -589,7 +589,7 @@ export default function SponsorshipSection() {
               className="space-y-8"
             >
               <div>
-                <h3 className="text-2xl font-bold text-white mb-4">Get In Touch</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">Kami Mendengarkanmu</h3>
                 <p className="text-gray-400 mb-6">
                   Ada pertanyaan seputar Sukamaju Run 2025? Tim kami siap membantu Anda dengan pendaftaran, detail acara, dan pertanyaan lainnya.
                 </p>
@@ -711,6 +711,24 @@ export default function SponsorshipSection() {
           </div>
         </div>
       </footer>
+
+      {/* Whatsaapp Button */}
+      <a
+        href="https://wa.me/6285280839706" // ganti dengan nomor kamu
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-4 right-4 z-50 bg-green-500 hover:bg-green-600 text-white rounded-full p-3 shadow-lg transition"
+        aria-label="Chat via WhatsApp"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path d="M12.01 2.004c-5.52 0-10 4.48-10 10 0 1.77.47 3.44 1.36 4.95L2 22l5.21-1.37a9.937 9.937 0 004.8 1.21h.01c5.52 0 10-4.48 10-10s-4.49-9.999-10.01-9.999zm0 18.12a8.06 8.06 0 01-4.11-1.12l-.3-.18-3.09.82.83-3.01-.2-.31a7.963 7.963 0 01-1.23-4.29c0-4.41 3.59-8 8-8 2.14 0 4.15.83 5.65 2.34s2.34 3.52 2.34 5.65c0 4.42-3.59 8-8 8.01zm4.41-5.89c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12s-.62.78-.76.94c-.14.16-.28.18-.52.06a6.45 6.45 0 01-1.9-1.17 7.09 7.09 0 01-1.32-1.65c-.14-.24-.01-.37.1-.49.1-.1.24-.26.36-.39.12-.13.16-.22.24-.37.08-.16.04-.3-.02-.42-.06-.12-.54-1.31-.74-1.79-.2-.48-.4-.41-.54-.42l-.46-.01c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32 1 .4c.14.92.95 1.81 1.04 1.93.1.12 1.86 2.83 4.51 3.96.63.27 1.12.43 1.51.55.64.2 1.22.17 1.68.1.51-.08 1.57-.64 1.79-1.26.22-.62.22-1.14.16-1.26-.06-.12-.22-.18-.46-.3z" />
+        </svg>
+      </a>
     </main>
   );
 }
