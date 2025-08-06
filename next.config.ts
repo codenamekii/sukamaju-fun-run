@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    unoptimized: true, // nonaktifkan optimasi bawaan Next.js (aman untuk gambar lokal statis)
+  },
 };
 
 export default nextConfig;

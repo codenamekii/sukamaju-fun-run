@@ -1,7 +1,7 @@
 "use client";
 
 import { Navigation } from "@/components/sections/navigation";
-import { PartnerSupport } from "@/components/sections/partner-support";
+import PartnerSupport from "@/components/sections/PartnerSupport";
 import {
   CardBody,
   CardContainer,
@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/3d-card";
 import { Button } from "@/components/ui/button";
 import CountdownTimer from "@/components/ui/countdown-timer";
+import FaqAccordion from "@/components/ui/FaqAccordion";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import SplashScreen from "@/components/ui/splashscreen";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
@@ -505,25 +506,7 @@ export default function SponsorshipSection() {
       </section>
 
       {/* Partner Support Event Section */}
-      <section id="partner-support" className="py-20">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Partner Support Event
-            </h2>
-            <p className="text-gray-400 text-lg">
-              Terima kasih kepada mitra yang telah mendukung acara ini
-            </p>
-          </motion.div>
-
-          <PartnerSupport />
-        </div>
-      </section>
+      <PartnerSupport />
 
       {/* Sponsorship Section */}
       <section id="sponsorship" className="py-20">
@@ -569,53 +552,14 @@ export default function SponsorshipSection() {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-20">
+      <section id="faq" className="py-20 bg-black">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-12"
-          >
+          <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Frequently Asked Questions (FAQ)</h2>
             <p className="text-gray-400 text-lg">Informasi Umum Seputar Sukamaju Run 2025</p>
-          </motion.div>
-
-          <div className="max-w-3xl mx-auto space-y-4">
-            {[
-              {
-                question: "Siapa Saja Yang Bisa Mengikuti Sukamaju Run 2025?",
-                answer: "Lomba ini terbuka untuk semua usia, latar belakang, dan komunitas, Tak peduli siapa kamu, dari mana asalmu",
-              },
-              {
-                question: "Bisakah saya mengubah kategori lomba setelah registrasi?",
-                answer: "Ya, Anda dapat mengubah kategori lomba hingga 2 minggu sebelum acara. Biaya administrasi kecil mungkin berlaku untuk peningkatan kategori",
-              },
-              {
-                question: "Apakah ada batas waktu untuk setiap kategori?",
-                answer: "Ya, batas waktu adalah: 5K - 1 jam, 10K - 2 jam. Waktu ini memastikan keselamatan dan manajemen acara yang tepat.",
-              },
-              {
-                question: "Apa yang terjadi jika hujan pada hari perlombaan?",
-                answer: "Lomba akan tetap dilaksanakan meskipun hujan. Kami hanya membatalkan atau menunda dalam kasus cuaca ekstrem yang membahayakan keselamatan. Pembaruan akan diposting di saluran media sosial kami.",
-              },
-              {
-                question: "Bisakah saya mendapatkan pengembalian dana jika saya tidak dapat berpartisipasi?",
-                answer: "Biaya pendaftaran tidak dapat dikembalikan. Namun, Anda dapat mentransfer slot Anda ke orang lain hingga 1 minggu sebelum acara dengan biaya transfer kecil.",
-              },
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-gray-900 rounded-xl p-6 border border-gray-800"
-              >
-                <h3 className="text-lg font-semibold text-white mb-2">{item.question}</h3>
-                <p className="text-gray-400">{item.answer}</p>
-              </motion.div>
-            ))}
           </div>
+
+          <FaqAccordion />
         </div>
       </section>
 
