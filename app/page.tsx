@@ -424,15 +424,15 @@ export default function SponsorshipSection() {
                 {
                   category: "5K Fun Run",
                   earlyBird: "Rp 162.000",
-                  regular: "Rp 180.000",
+                  regular: "Rp 200.000",
                   slot: "100 Slot Only",
                   benefit: ["Goodie Bag", "Jersey", "Medal", "e-Certificate", "Refreshment"],
-                  link: "https://shorturl.at/caysQ", // LINK JOTFORM 5K
+                  link: "https://shorturl.at/Rh7WJ", // LINK JOTFORM 5K
                 },
                 {
                   category: "10K Challenge",
                   earlyBird: "Rp 207.000",
-                  regular: "Rp 230.000",
+                  regular: "Rp 250.000",
                   slot: "100 Slot Only",
                   benefit: ["Goodie Bag", "Jersey", "Medal", "e-Certificate", "Refreshment++"],
                   link: "https://shorturl.at/bJ9av", // LINK JOTFORM 10K (ganti sesuai link kamu)
