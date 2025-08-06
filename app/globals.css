@@ -222,6 +222,10 @@ body {
   animation: glow 2s ease-in-out infinite alternate;
 }
 
+.glassy {
+  @apply bg-white/10 backdrop-blur-md;
+}
+
 /* Gradient text */
 .gradient-text {
   background-clip: text;

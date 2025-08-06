@@ -16,16 +16,6 @@
       "website": "#"
     },
     {
-      "name": "PASI LUTRA",
-      "logo": "/sponsors/sponsor6.png",
-      "website": "#"
-    },
-    {
-      "name": "KONI LUTRA",
-      "logo": "/sponsors/sponsor7.png",
-      "website": "#"
-    },
-    {
       "name":"Zona Ngopi",
       "logo":"/sponsors/sponsor8.png",
       "website":"#"
@@ -33,6 +23,11 @@
     {
       "name":"Raja Tea",
       "logo":"/sponsors/sponsor9.png",
+      "website":"#"
+    },
+    {
+      "name": "Reborn Angel",
+      "logo":"/sponsors/sponsor10.png",
       "website":"#"
     }
   ]

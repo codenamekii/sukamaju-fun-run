@@ -1,15 +1,16 @@
 "use client";
 
 import { Navigation } from "@/components/sections/navigation";
+import { PartnerSupport } from "@/components/sections/partner-support";
 import {
   CardBody,
   CardContainer,
   CardItem,
 } from "@/components/ui/3d-card";
 import { Button } from "@/components/ui/button";
+import CountdownTimer from "@/components/ui/countdown-timer";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
-import { Meteors } from "@/components/ui/meteor";
-import { Spotlight } from "@/components/ui/spotlight";
+import SplashScreen from "@/components/ui/splashscreen";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import { motion } from "framer-motion";
 import {
@@ -29,7 +30,6 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 
-
 interface Sponsor {
   name: string;
   logo: string;
@@ -43,7 +43,6 @@ export default function SponsorshipSection() {
     fetch("/sponsorship.json")
       .then((res) => res.json())
       .then((data) => {
-        // JSON ada key sponsors
         setSponsors(data.sponsors || []);
       })
       .catch((err) => console.error(err));
@@ -70,80 +69,102 @@ export default function SponsorshipSection() {
       />
     </a>
   ));
+
   return (
     <main className="min-h-screen bg-black/[0.96] antialiased bg-grid-white/[0.02]">
-      <Navigation />
-
+      <SplashScreen/>
       {/* Hero Section */}
-      <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
-        <Spotlight
-          className="-top-40 left-0 md:left-60 md:-top-20"
-          fill="white"
-        />
-        <div className="relative z-10 text-center px-4">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-4xl md:text-7xl font-bold text-white mb-4"
-          >
-            SUKAMAJU RUN 2025
-          </motion.h1>
-          <TextGenerateEffect
-            words="Melangkah Bersama, Satukan Perbedaan"
-            className="text-xl md:text-2xl text-gray-300 mb-8"
+      <section id="home" className="relative overflow-hidden">
+        {/* Logo kiri atas */}
+        <div className="absolute top-4 left-4 z-50">
+          <Image
+            src="/logo.png"
+            alt="Sukamaju Run Logo"
+            width={40}
+            height={40}
+            className="w-10 h-10 object-contain"
           />
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 1, duration: 0.5 }}
-            className="flex gap-4 justify-center"
-          >
-            <Button 
-              variant="glow" 
-              size="lg"
-              onClick={() =>
-                window.open("https://forms.gle/wessYTiJ7bXhd2wQA", "_blank")
-              }
-            >
-              Register Now <ChevronRight className="ml-2 h-4 w-4" />
-            </Button>
-            <Button variant="outline" size="lg" className="text-white border-white hover:bg-white/10">
-              Learn More
-            </Button>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.5 }}
-            className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto"
-          >
-            {[
-              { icon: Calendar, label: "Minggu, 28 September", value: "2025" },
-              { icon: MapPin, label: "Lapangan Subiantoro", value: "Sukamaju" },
-              { icon: Users, label: "1000+", value: "Runners" },
-              { icon: Trophy, label: "Total Prize", value: "20 jt" },
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.5 + index * 0.1 }}
-                className="text-center"
-              >
-                <item.icon className="w-8 h-8 mx-auto mb-2 text-blue-400" />
-                <p className="text-gray-400 text-sm">{item.label}</p>
-                <p className="text-white font-semibold">{item.value}</p>
-              </motion.div>
-            ))}
-          </motion.div>
         </div>
-        <Meteors number={20} />
+
+        {/* Navigation (burger menu kanan atas) */}
+        <Navigation />
+
+        <div className="container mx-auto px-4 pt-24 transition-all duration-300 text-center">
+          <div className="relative z-10 text-center px-4 py-4">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-4xl md:text-7xl font-bold text-white mb-4"
+            >
+              SUKAMAJU RUN 2025
+            </motion.h1>
+
+            <TextGenerateEffect
+              words="Melangkah Bersama, Satukan Perbedaan"
+              className="text-xl md:text-2xl text-gray-300 mb-8"
+            />
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 1, duration: 0.5 }}
+              className="flex gap-4 justify-center"
+            >
+              <Button
+                variant="glow"
+                size="lg"
+                onClick={() => {
+                  const section = document.getElementById("registration");
+                  section?.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                Daftar <ChevronRight className="ml-2 h-4 w-4" />
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                className="text-white border-white hover:bg-white/10"
+              >
+                Pelajari Selengkapnya
+              </Button>
+            </motion.div>
+
+            {/* Countdown Timer */}
+            <CountdownTimer targetDate="2025-09-28T06:00:00" />
+
+            {/* Informasi Grid */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.5 }}
+              className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto"
+            >
+              {[
+                { icon: Calendar, label: "Minggu, 28 September", value: "2025" },
+                { icon: MapPin, label: "Lapangan Subiantoro", value: "Sukamaju" },
+                { icon: Users, label: "1000+", value: "Runners" },
+                { icon: Trophy, label: "Total Prize", value: "21 jt" },
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1.5 + index * 0.1 }}
+                  className="text-center"
+                >
+                  <item.icon className="w-8 h-8 mx-auto mb-2 text-blue-400" />
+                  <p className="text-gray-400 text-sm">{item.label}</p>
+                  <p className="text-white font-semibold">{item.value}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
       </section>
 
       {/* Schedule Section */}
-      <section id="schedule" className="py-20 relative">
+      <section id="schedule" className="py-20 relative bg-black">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -154,7 +175,7 @@ export default function SponsorshipSection() {
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               Jadwal Kegiatan
             </h2>
-            <p className="text-gray-400 text-lg">
+            <p className="text-white text-lg">
               Catat di Kalender kalian ya!
             </p>
           </motion.div>
@@ -164,24 +185,24 @@ export default function SponsorshipSection() {
               {
                 date: "Coming Soon",
                 title: "Pendaftaran dibuka",
-                time: "00:00 WIB",
+                time: "Coming Soon",
                 description: "Daftarkan dirimu segera!!!",
                 color: "from-blue-600 to-cyan-600",
                 image: "registrasi.png",
               },
               {
                 date: "Coming Soon",
-                title: "Pendaftaran ditutup",
-                time: "23:59 WITA",
-                description: "Kesempatan terakhir, ayo buruan!",
+                title: "Pengambilan Racepack",
+                time: "Coming Soon",
+                description: "Ambil Perlengkapan Kalian",
                 color: "from-purple-600 to-pink-600",
-                image: "close.png",
+                image: "racepack.png",
               },
               {
                 date: "28 Sept 2025",
                 title: "Race Day",
                 time: "06:00 WITA",
-                description: "Hari Besar, Ayo Berlari Bersama!",
+                description: "Sekarang Saatnya, Ayo Berlari Bersama!",
                 color: "from-orange-600 to-red-600",
                 image: "race.png",
               },
@@ -193,9 +214,7 @@ export default function SponsorshipSection() {
                 transition={{ delay: index * 0.1 }}
               >
                 <CardContainer className="inter-var cursor-pointer">
-                  <CardBody className="relative group/card bg-gray-50 dark:bg-black dark:border-white/[0.2] border border-black/[0.1] rounded-xl p-6 w-auto sm:w-[22rem] h-auto dark:hover:shadow-emerald-500/[0.2] dark:hover:shadow-2xl">
-
-                    {/* Gambar utama */}
+                  <CardBody className="relative group/card bg-black border border-white/20 rounded-xl p-6 w-auto sm:w-[22rem] h-auto hover:shadow-emerald-500/20 hover:shadow-2xl">
                     <CardItem translateZ="100">
                       <Image
                         src={`/${item.image}`}
@@ -217,21 +236,21 @@ export default function SponsorshipSection() {
                     <CardItem
                       as="h3"
                       translateZ="80"
-                      className="text-2xl font-bold text-neutral-800 dark:text-white mt-4"
+                      className="text-2xl font-bold text-white mt-4"
                     >
                       {item.title}
                     </CardItem>
 
                     <CardItem
                       translateZ="60"
-                      className="text-neutral-500 text-sm mt-2 dark:text-white"
+                      className="text-white text-sm mt-2"
                     >
                       {item.time}
                     </CardItem>
 
                     <CardItem
                       translateZ="50"
-                      className="text-neutral-600 mt-4 dark:text-neutral-400"
+                      className="text-white mt-4"
                     >
                       {item.description}
                     </CardItem>
@@ -303,7 +322,7 @@ export default function SponsorshipSection() {
                     ))}
                   </ul>
                   <Button variant="outline" className="w-full mt-6 border-white/20 text-white hover:bg-white/10">
-                    View Route Map
+                    Coming Soon!
                   </Button>
                 </div>
               </motion.div>
@@ -403,15 +422,19 @@ export default function SponsorshipSection() {
               {[
                 {
                   category: "5K Fun Run",
-                  earlyBird: "Rp 150.000",
-                  regular: "Rp 200.000",
-                  benefit: ["Goodie Bag", "Jersey", "Medal", "E-Certificate"],
+                  earlyBird: "Rp 162.000",
+                  regular: "Rp 180.000",
+                  slot: "100 Slot Only",
+                  benefit: ["Goodie Bag", "Jersey", "Medal", "e-Certificate", "Refreshment"],
+                  link: "https://shorturl.at/caysQ", // LINK JOTFORM 5K
                 },
                 {
                   category: "10K Challenge",
-                  earlyBird: "Rp 200.000",
-                  regular: "Rp 250.000",
-                  benefit: ["Goodie Bag", "Jersey", "Medal", "Certificate"],
+                  earlyBird: "Rp 207.000",
+                  regular: "Rp 230.000",
+                  slot: "100 Slot Only",
+                  benefit: ["Goodie Bag", "Jersey", "Medal", "e-Certificate", "Refreshment++"],
+                  link: "https://shorturl.at/bJ9av", // LINK JOTFORM 10K (ganti sesuai link kamu)
                 },
               ].map((item, index) => (
                 <motion.div
@@ -423,28 +446,35 @@ export default function SponsorshipSection() {
                 >
                   <div className="bg-gray-900 rounded-2xl p-6 border border-gray-800 h-full">
                     <h3 className="text-xl font-bold text-white mb-4">{item.category}</h3>
+
                     <div className="mb-4">
-                      <p className="text-gray-400 text-sm">Early Bird Price</p>
+                      <p className="text-gray-400 text-sm">Early Bird Price (Discount 10%)</p>
                       <p className="text-2xl font-bold text-green-400">{item.earlyBird}</p>
                     </div>
+
                     <div className="mb-6">
                       <p className="text-gray-400 text-sm">Regular Price</p>
                       <p className="text-xl text-gray-300 line-through">{item.regular}</p>
                     </div>
+
+                    <div className="mb-6">
+                      <p className="text-gray-400 text-sm">Slot Available</p>
+                      <p className="text-xl font-bold text-gray-300">{item.slot}</p>
+                    </div>
+
                     <div className="space-y-2">
                       <p className="text-gray-400 text-sm font-semibold">Includes:</p>
                       {item.benefit.map((benefit, idx) => (
                         <p key={idx} className="text-gray-300 text-sm">✓ {benefit}</p>
                       ))}
                     </div>
+
                     <Button
                       variant="glow"
                       className="w-full mt-6"
-                      onClick={() =>
-                        window.open("https://forms.gle/wessYTiJ7bXhd2wQA", "_blank")
-                      }
+                      onClick={() => window.open(item.link, "_blank")}
                     >
-                      Register Now
+                      Daftar
                     </Button>
                   </div>
                 </motion.div>
@@ -459,18 +489,39 @@ export default function SponsorshipSection() {
             >
               <h3 className="text-2xl font-bold text-white mb-4">Registrasi Komunitas</h3>
               <p className="text-white/90 mb-6">Untuk Registrasi Komunitas Silahkan Hubungi Panitia Penyelenggara</p>
-              <Button 
-                variant="outline" 
-                size="lg" 
+              <Button
+                variant="outline"
+                size="lg"
                 className="bg-white text-gray-900 hover:bg-gray-100"
                 onClick={() =>
                   window.open("https://api.whatsapp.com/send/?phone=6285890031215&text&type=phone_number&app_absent=0", "_blank")
                 }
-                >
-                  Registrasi Komunitas
+              >
+                Registrasi Komunitas
               </Button>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Partner Support Event Section */}
+      <section id="partner-support" className="py-20">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Partner Support Event
+            </h2>
+            <p className="text-gray-400 text-lg">
+              Terima kasih kepada mitra yang telah mendukung acara ini
+            </p>
+          </motion.div>
+
+          <PartnerSupport />
         </div>
       </section>
 
@@ -526,8 +577,8 @@ export default function SponsorshipSection() {
             transition={{ duration: 0.5 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Frequently Asked Questions</h2>
-            <p className="text-gray-400 text-lg">Everything you need to know</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Frequently Asked Questions (FAQ)</h2>
+            <p className="text-gray-400 text-lg">Informasi Umum Seputar Sukamaju Run 2025</p>
           </motion.div>
 
           <div className="max-w-3xl mx-auto space-y-4">
@@ -578,7 +629,7 @@ export default function SponsorshipSection() {
             className="text-center mb-12"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Hubungi Kami</h2>
-            <p className="text-gray-400 text-lg">Lebih dekat dengan tim panitia penyelenggara</p>
+            <p className="text-gray-400 text-lg">Lebih dekat dengan kami</p>
           </motion.div>
 
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
@@ -612,7 +663,7 @@ export default function SponsorshipSection() {
                   </div>
                   <div>
                     <p className="text-gray-400 text-sm">Phone</p>
-                    <p className="text-white">0852-8083-9706</p>
+                    <p className="text-white">+62 858-9003-1215</p>
                   </div>
                 </div>
 
@@ -622,7 +673,7 @@ export default function SponsorshipSection() {
                   </div>
                   <div>
                     <p className="text-gray-400 text-sm">WhatsApp</p>
-                    <p className="text-white">0852-8083-9706</p>
+                    <p className="text-white">+62 858-9003-1215</p>
                   </div>
                 </div>
               </div>
@@ -639,54 +690,11 @@ export default function SponsorshipSection() {
                   <a href="" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors" aria-label="TikTok">
                     {/* TikTok SVG icon */}
                     <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M21.6 8.1a5.6 5.6 0 0 1-3.6-1.2V15a6.6 6.6 0 1 1-6.6-6.6c.2 0 .4 0 .6.1v2.2a4.4 4.4 0 1 0 4.4 4.4V2.4h2.2a3.4 3.4 0 0 0 3.4 3.4v2.3z"/>
+                      <path d="M21.6 8.1a5.6 5.6 0 0 1-3.6-1.2V15a6.6 6.6 0 1 1-6.6-6.6c.2 0 .4 0 .6.1v2.2a4.4 4.4 0 1 0 4.4 4.4V2.4h2.2a3.4 3.4 0 0 0 3.4 3.4v2.3z" />
                     </svg>
                   </a>
                 </div>
               </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <form className="bg-gray-900 rounded-2xl p-8 border border-gray-800">
-                <h3 className="text-xl font-bold text-white mb-6">Send us a message</h3>
-
-                <div className="space-y-4">
-                  <div>
-                    <label className="block text-gray-400 text-sm mb-2">Name</label>
-                    <input
-                      type="text"
-                      className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors"
-                      placeholder="Your name"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-gray-400 text-sm mb-2">Email</label>
-                    <input
-                      type="email"
-                      className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors"
-                      placeholder="your@email.com"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-gray-400 text-sm mb-2">Message</label>
-                    <textarea
-                      rows={4}
-                      className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors resize-none"
-                      placeholder="Your message..."
-                    />
-                  </div>
-
-                  <Button variant="glow" className="w-full">
-                    Send Message
-                  </Button>
-                </div>
-              </form>
             </motion.div>
           </div>
         </div>
@@ -696,10 +704,10 @@ export default function SponsorshipSection() {
       <footer className="py-8 border-t border-gray-800">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p 
-              className="text-gray-400 text-sm">© 2025 Sukamaju Run 2025. 
-              <button 
-                className="hover:text-white text-sm transition-colors" 
+            <p
+              className="text-gray-400 text-sm">© 2025 Sukamaju Run 2025.
+              <button
+                className="hover:text-white text-sm transition-colors"
                 onClick={() =>
                   window.open("https://kiiiii.netlify.app/", "_blank")
                 } >  by Taufiqurrahman</button> with 😎</p>
@@ -712,9 +720,9 @@ export default function SponsorshipSection() {
         </div>
       </footer>
 
-      {/* Whatsaapp Button */}
+      {/* WhatsApp Button */}
       <a
-        href="https://wa.me/6285280839706" // ganti dengan nomor kamu
+        href="https://wa.me/085890031215"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-4 right-4 z-50 bg-green-500 hover:bg-green-600 text-white rounded-full p-3 shadow-lg transition"

@@ -1,0 +1,19 @@
+{
+  "partners": [
+    {
+      "name": "disporapar",
+      "logo": "partnership/partner1.jpg",
+      "website":"#"
+    },
+    {
+      "name": "KONI LUTRA",
+      "logo":"partnership/partner2.png",
+      "website":"#"
+    },
+    {
+      "name": "PASI LUTRA",
+      "logo":"partnership/partner3.png",
+      "website":"#"
+    }
+  ]
+}
