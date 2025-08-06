@@ -722,7 +722,7 @@ export default function SponsorshipSection() {
 
       {/* WhatsApp Button */}
       <a
-        href="https://wa.me/085890031215"
+        href="https://wa.me/+6285890031215"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-4 right-4 z-50 bg-green-500 hover:bg-green-600 text-white rounded-full p-3 shadow-lg transition"
