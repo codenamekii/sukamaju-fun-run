@@ -102,7 +102,7 @@ export default function SponsorshipSection() {
             </motion.h1>
 
             <TextGenerateEffect
-              words="Melangkah Bersama, Satukan Perbedaan"
+              words="Melangkah Bersama, Merangkul Perbedaan"
               className="text-xl md:text-2xl text-gray-300 mb-8"
             />
 
