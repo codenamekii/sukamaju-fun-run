@@ -89,7 +89,6 @@ export default function SponsorshipSection() {
 
         {/* Navigation (burger menu kanan atas) */}
         <Navigation />
-
         <div className="container mx-auto px-4 pt-24 transition-all duration-300 text-center">
           <div className="relative z-10 text-center px-4 py-4">
             <motion.h1
@@ -514,7 +513,7 @@ export default function SponsorshipSection() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 2.0 }}
             className="text-center mb-12"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">

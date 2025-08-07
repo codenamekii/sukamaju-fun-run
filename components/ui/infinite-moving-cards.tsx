@@ -14,7 +14,7 @@ interface InfiniteMovingCardsProps {
 export const InfiniteMovingCards = ({
   items,
   direction = "left",
-  speed = "normal",
+  speed = "fast",
   pauseOnHover = false,
   className,
 }: InfiniteMovingCardsProps) => {
@@ -24,11 +24,11 @@ export const InfiniteMovingCards = ({
   const getSpeed = () => {
     switch (speed) {
       case "fast":
-        return 25;
+        return 10;
       case "slow":
-        return 80;
+        return 10;
       default:
-        return 40;
+        return 10;
     }
   };
 
