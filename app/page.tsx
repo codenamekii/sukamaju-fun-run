@@ -449,7 +449,7 @@ export default function SponsorshipSection() {
                     <h3 className="text-xl font-bold text-white mb-4">{item.category}</h3>
 
                     <div className="mb-4">
-                      <p className="text-gray-400 text-sm">Early Bird Price (Discount 10%)</p>
+                      <p className="text-gray-400 text-sm">Early Bird Price (Promo Prize)</p>
                       <p className="text-2xl font-bold text-green-400">{item.earlyBird}</p>
                     </div>
 
