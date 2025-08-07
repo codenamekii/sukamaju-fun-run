@@ -279,7 +279,7 @@ export default function SponsorshipSection() {
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {[
               {
-                category: "5K Fun Run",
+                category: "5K Umum dan Pelajar",
                 distance: "5 KM",
                 elevation: "50m",
                 difficulty: "Beginner",
@@ -422,7 +422,7 @@ export default function SponsorshipSection() {
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               {[
                 {
-                  category: "5K Fun Run",
+                  category: "5K Umum dan Pelajar",
                   earlyBird: "Rp 162.000",
                   regular: "Rp 200.000",
                   slot: "100 Slot Only",
