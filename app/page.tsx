@@ -184,9 +184,9 @@ export default function SponsorshipSection() {
           <div className="grid md:grid-cols-3 text-white gap-14 max-w-6xl mx-auto">
             {[
               {
-                date: "Coming Soon",
+                date: "7 Agustus 2025",
                 title: "Pendaftaran dibuka",
-                time: "Coming Soon",
+                time: "7 Agustus 2025",
                 description: "Daftarkan dirimu segera!!!",
                 color: "from-blue-600 to-cyan-600",
                 image: "registrasi.png",
