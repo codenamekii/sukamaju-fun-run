@@ -422,11 +422,11 @@ export default function SponsorshipSection() {
               {[
                 {
                   category: "5K Umum dan Pelajar",
-                  earlyBird: "Rp 162.000",
+                  earlyBird: "SOLD OUT",
                   regular: "Rp 200.000",
-                  slot: "100 Slot Only",
+                  slot: "SOLD OUT",
                   benefit: ["Goodie Bag", "Jersey", "Medal", "e-Certificate", "Refreshment"],
-                  link: "https://shorturl.at/Rh7WJ", // LINK JOTFORM 5K
+                  link: "#", // LINK JOTFORM 5K
                 },
                 {
                   category: "10K Challenge",
