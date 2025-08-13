@@ -183,9 +183,9 @@ export default function SponsorshipSection() {
           <div className="grid md:grid-cols-3 text-white gap-14 max-w-6xl mx-auto">
             {[
               {
-                date: "7 Agustus 2025",
+                date: "7 - 20 Agustus 2025",
                 title: "Pendaftaran dibuka",
-                time: "7 Agustus 2025",
+                time: "7 - 20 Agustus 2025",
                 description: "Daftarkan dirimu segera!!!",
                 color: "from-blue-600 to-cyan-600",
                 image: "registrasi.png",
@@ -422,19 +422,19 @@ export default function SponsorshipSection() {
               {[
                 {
                   category: "5K Umum dan Pelajar",
-                  earlyBird: "SOLD OUT",
+                  NormalPrize: "Rp 180.000",
                   regular: "Rp 200.000",
-                  slot: "SOLD OUT",
+                  slot: "TERSEDIA",
                   benefit: ["Goodie Bag", "Jersey", "Medal", "e-Certificate", "Refreshment"],
-                  link: "#", // LINK JOTFORM 5K
+                  link: "https://forms.gle/4jryXNeH2J2d9jV69", // LINK JOTFORM 5K
                 },
                 {
                   category: "10K Challenge",
-                  earlyBird: "Rp 207.000",
+                  NormalPrize: "Rp 230.000",
                   regular: "Rp 250.000",
-                  slot: "100 Slot Only",
+                  slot: "TERSEDIA",
                   benefit: ["Goodie Bag", "Jersey", "Medal", "e-Certificate", "Refreshment++"],
-                  link: "https://shorturl.at/bJ9av", // LINK JOTFORM 10K (ganti sesuai link kamu)
+                  link: "https://forms.gle/coQX7eLUdVRKxoJq5", // LINK JOTFORM 10K (ganti sesuai link kamu)
                 },
               ].map((item, index) => (
                 <motion.div
@@ -448,8 +448,8 @@ export default function SponsorshipSection() {
                     <h3 className="text-xl font-bold text-white mb-4">{item.category}</h3>
 
                     <div className="mb-4">
-                      <p className="text-gray-400 text-sm">Early Bird Price (Promo Prize)</p>
-                      <p className="text-2xl font-bold text-green-400">{item.earlyBird}</p>
+                      <p className="text-gray-400 text-sm">Harga Normal</p>
+                      <p className="text-2xl font-bold text-green-400">{item.NormalPrize}</p>
                     </div>
 
                     <div className="mb-6">
@@ -459,7 +459,7 @@ export default function SponsorshipSection() {
 
                     <div className="mb-6">
                       <p className="text-gray-400 text-sm">Slot Available</p>
-                      <p className="text-xl font-bold text-gray-300">{item.slot}</p>
+                      <p className="text-xl font-bold text-green-300">{item.slot}</p>
                     </div>
 
                     <div className="space-y-2">
