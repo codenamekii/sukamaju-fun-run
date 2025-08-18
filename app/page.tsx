@@ -426,7 +426,7 @@ export default function SponsorshipSection() {
                   regular: "Rp 200.000",
                   slot: "TERSEDIA",
                   benefit: ["Goodie Bag", "Jersey", "Medal", "e-Certificate", "Refreshment"],
-                  link: "https://forms.gle/4jryXNeH2J2d9jV69", // LINK JOTFORM 5K
+                  //link: "https://forms.gle/4jryXNeH2J2d9jV69", // LINK JOTFORM 5K
                 },
                 {
                   category: "10K Challenge",
@@ -434,7 +434,7 @@ export default function SponsorshipSection() {
                   regular: "Rp 250.000",
                   slot: "TERSEDIA",
                   benefit: ["Goodie Bag", "Jersey", "Medal", "e-Certificate", "Refreshment++"],
-                  link: "https://forms.gle/coQX7eLUdVRKxoJq5", // LINK JOTFORM 10K (ganti sesuai link kamu)
+                  //link: "https://forms.gle/coQX7eLUdVRKxoJq5", // LINK JOTFORM 10K (ganti sesuai link kamu)
                 },
               ].map((item, index) => (
                 <motion.div
@@ -472,9 +472,9 @@ export default function SponsorshipSection() {
                     <Button
                       variant="glow"
                       className="w-full mt-6"
-                      onClick={() => window.open(item.link, "_blank")}
+                      //onClick={() => window.open(item.link, "_blank")}
                     >
-                      Daftar
+                      Maintenance
                     </Button>
                   </div>
                 </motion.div>
