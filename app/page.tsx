@@ -426,7 +426,7 @@ export default function SponsorshipSection() {
                   regular: "Rp 200.000",
                   slot: "TERSEDIA",
                   benefit: ["Goodie Bag", "Jersey", "Medal", "e-Certificate", "Refreshment"],
-                  //link: "https://forms.gle/4jryXNeH2J2d9jV69", // LINK JOTFORM 5K
+                  link: "https://forms.gle/4jryXNeH2J2d9jV69", // LINK JOTFORM 5K
                 },
                 {
                   category: "10K Challenge",
@@ -434,7 +434,7 @@ export default function SponsorshipSection() {
                   regular: "Rp 250.000",
                   slot: "TERSEDIA",
                   benefit: ["Goodie Bag", "Jersey", "Medal", "e-Certificate", "Refreshment++"],
-                  //link: "https://forms.gle/coQX7eLUdVRKxoJq5", // LINK JOTFORM 10K (ganti sesuai link kamu)
+                  link: "https://forms.gle/coQX7eLUdVRKxoJq5", // LINK JOTFORM 10K (ganti sesuai link kamu)
                 },
               ].map((item, index) => (
                 <motion.div
@@ -472,9 +472,9 @@ export default function SponsorshipSection() {
                     <Button
                       variant="glow"
                       className="w-full mt-6"
-                      //onClick={() => window.open(item.link, "_blank")}
+                      onClick={() => window.open(item.link, "_blank")}
                     >
-                      Maintenance
+                      Daftar
                     </Button>
                   </div>
                 </motion.div>
@@ -488,13 +488,15 @@ export default function SponsorshipSection() {
               className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-center"
             >
               <h3 className="text-2xl font-bold text-white mb-4">Registrasi Komunitas</h3>
-              <p className="text-white/90 mb-6">Untuk Registrasi Komunitas Silahkan Hubungi Panitia Penyelenggara</p>
+              <p className="text-white/90 mb-6">
+                Klik tombol di bawah untuk melakukan registrasi komunitas melalui form resmi
+              </p>
               <Button
                 variant="outline"
                 size="lg"
                 className="bg-white text-gray-900 hover:bg-gray-100"
                 onClick={() =>
-                  window.open("https://api.whatsapp.com/send/?phone=6285890031215&text&type=phone_number&app_absent=0", "_blank")
+                  window.open("https://form.jotform.com/252315355747460", "_blank")
                 }
               >
                 Registrasi Komunitas
