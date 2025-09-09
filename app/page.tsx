@@ -131,7 +131,7 @@ export default function SponsorshipSection() {
             </motion.div>
 
             {/* Countdown Timer */}
-            <CountdownTimer targetDate="2025-09-28T06:00:00" />
+            <CountdownTimer targetDate="2025-11-16T06:00:00" />
 
             {/* Informasi Grid */}
             <motion.div
@@ -141,10 +141,10 @@ export default function SponsorshipSection() {
               className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto"
             >
               {[
-                { icon: Calendar, label: "Minggu, 28 September", value: "2025" },
+                { icon: Calendar, label: "Minggu, 16 November", value: "2025" },
                 { icon: MapPin, label: "Lapangan Subiantoro", value: "Sukamaju" },
                 { icon: Users, label: "1000+", value: "Runners" },
-                { icon: Trophy, label: "Total Prize", value: "21 jt" },
+                { icon: Trophy, label: "Total Prize", value: "Jutaan Rupiah" },
               ].map((item, index) => (
                 <motion.div
                   key={index}
@@ -183,9 +183,9 @@ export default function SponsorshipSection() {
           <div className="grid md:grid-cols-3 text-white gap-14 max-w-6xl mx-auto">
             {[
               {
-                date: "7 - 20 Agustus 2025",
+                date: "7 Aug - 5 Okt 2025",
                 title: "Pendaftaran dibuka",
-                time: "7 - 20 Agustus 2025",
+                time: "7 Aug - 5 Okt 2025",
                 description: "Daftarkan dirimu segera!!!",
                 color: "from-blue-600 to-cyan-600",
                 image: "registrasi.png",
@@ -199,7 +199,7 @@ export default function SponsorshipSection() {
                 image: "racepack.png",
               },
               {
-                date: "28 Sept 2025",
+                date: "16 November 2025",
                 title: "Race Day",
                 time: "06:00 WITA",
                 description: "Sekarang Saatnya, Ayo Berlari Bersama!",
