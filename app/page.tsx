@@ -426,7 +426,7 @@ export default function SponsorshipSection() {
                   regular: "Rp 200.000",
                   slot: "TERSEDIA",
                   benefit: ["Goodie Bag", "Jersey", "Medal", "e-Certificate", "Refreshment"],
-                  link: "https://forms.gle/4jryXNeH2J2d9jV69", // LINK JOTFORM 5K
+                  link: "https://forms.gle/QZZ2tagF2D7zQLjP8", // LINK JOTFORM 5K
                 },
                 {
                   category: "10K Challenge",
