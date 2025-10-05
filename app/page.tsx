@@ -424,17 +424,17 @@ export default function SponsorshipSection() {
                   category: "5K Umum dan Pelajar",
                   NormalPrize: "Rp 180.000",
                   regular: "Rp 200.000",
-                  slot: "TERSEDIA",
+                  slot: "HABIS",
                   benefit: ["Goodie Bag", "Jersey", "Medal", "e-Certificate", "Refreshment"],
-                  link: "https://forms.gle/hMbFWT66bPxvbwYc9", // LINK JOTFORM 5K
+                  link: "", // LINK JOTFORM 5K
                 },
                 {
                   category: "10K Challenge",
                   NormalPrize: "Rp 230.000",
                   regular: "Rp 250.000",
-                  slot: "TERSEDIA",
+                  slot: "HABIS",
                   benefit: ["Goodie Bag", "Jersey", "Medal", "e-Certificate", "Refreshment++"],
-                  link: "https://forms.gle/coQX7eLUdVRKxoJq5", // LINK JOTFORM 10K (ganti sesuai link kamu)
+                  link: "", // LINK JOTFORM 10K (ganti sesuai link kamu)
                 },
               ].map((item, index) => (
                 <motion.div
@@ -459,7 +459,7 @@ export default function SponsorshipSection() {
 
                     <div className="mb-6">
                       <p className="text-gray-400 text-sm">Slot Available</p>
-                      <p className="text-xl font-bold text-green-300">{item.slot}</p>
+                      <p className="text-xl font-bold text-red-500">{item.slot}</p>
                     </div>
 
                     <div className="space-y-2">
@@ -474,7 +474,7 @@ export default function SponsorshipSection() {
                       className="w-full mt-6"
                       onClick={() => window.open(item.link, "_blank")}
                     >
-                      Daftar
+                      Ditutup
                     </Button>
                   </div>
                 </motion.div>
@@ -495,9 +495,9 @@ export default function SponsorshipSection() {
                 variant="outline"
                 size="lg"
                 className="bg-white text-gray-900 hover:bg-gray-100"
-                onClick={() =>
-                  window.open("https://form.jotform.com/252315355747460", "_blank")
-                }
+                // onClick={() =>
+                //   window.open("https://form.jotform.com/252315355747460", "_blank")
+                // }
               >
                 Registrasi Komunitas
               </Button>
