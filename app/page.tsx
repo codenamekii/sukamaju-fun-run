@@ -424,17 +424,17 @@ export default function SponsorshipSection() {
                   category: "5K Umum dan Pelajar",
                   NormalPrize: "Rp 180.000",
                   regular: "Rp 200.000",
-                  slot: "HABIS",
+                  slot: "TERBATAS",
                   benefit: ["Goodie Bag", "Jersey", "Medal", "e-Certificate", "Refreshment"],
-                  link: "", // LINK JOTFORM 5K
+                  link: "https://forms.gle/9ASkxrq43b1RFc1VA", // LINK FORM 5K
                 },
                 {
                   category: "10K Challenge",
                   NormalPrize: "Rp 230.000",
                   regular: "Rp 250.000",
-                  slot: "HABIS",
+                  slot: "TERBATAS",
                   benefit: ["Goodie Bag", "Jersey", "Medal", "e-Certificate", "Refreshment++"],
-                  link: "", // LINK JOTFORM 10K (ganti sesuai link kamu)
+                  link: "https://forms.gle/VLqNqJqQ3UfpXgHd9", // LINK FORM 10K
                 },
               ].map((item, index) => (
                 <motion.div
@@ -459,7 +459,7 @@ export default function SponsorshipSection() {
 
                     <div className="mb-6">
                       <p className="text-gray-400 text-sm">Slot Available</p>
-                      <p className="text-xl font-bold text-red-500">{item.slot}</p>
+                      <p className="text-xl font-bold text-yellow-500">{item.slot}</p>
                     </div>
 
                     <div className="space-y-2">
@@ -474,7 +474,7 @@ export default function SponsorshipSection() {
                       className="w-full mt-6"
                       onClick={() => window.open(item.link, "_blank")}
                     >
-                      Ditutup
+                      DAFTAR
                     </Button>
                   </div>
                 </motion.div>
