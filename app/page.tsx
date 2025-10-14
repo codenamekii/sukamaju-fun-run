@@ -426,7 +426,7 @@ export default function SponsorshipSection() {
                   regular: "Rp 200.000",
                   slot: "TERBATAS",
                   benefit: ["Goodie Bag", "Jersey", "Medal", "e-Certificate", "Refreshment"],
-                  link: "https://forms.gle/9ASkxrq43b1RFc1VA", // LINK FORM 5K
+                  link: "", // LINK FORM 5K
                 },
                 {
                   category: "10K Challenge",
@@ -434,7 +434,7 @@ export default function SponsorshipSection() {
                   regular: "Rp 250.000",
                   slot: "TERBATAS",
                   benefit: ["Goodie Bag", "Jersey", "Medal", "e-Certificate", "Refreshment++"],
-                  link: "https://forms.gle/VLqNqJqQ3UfpXgHd9", // LINK FORM 10K
+                  link: "", // LINK FORM 10K
                 },
               ].map((item, index) => (
                 <motion.div
